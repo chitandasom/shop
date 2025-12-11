@@ -1,0 +1,338 @@
+/* ==========================================
+   FONT
+========================================== */
+@font-face {
+  font-family: "MissFajardose";
+  src: url("fonts/MissFajardose-Regular.ttf") format("truetype");
+}
+
+/* ==========================================
+   GLOBAL RESET + MOBILE SCROLL FIX
+========================================== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden !important;
+  background: transparent !important;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* glitch animation */
+html, body, div, span, a, p {
+  animation: textGlitchSoft 0.9s infinite alternate;
+}
+
+@keyframes textGlitchSoft {
+  0%   { text-shadow: 0px 0px 0 #000; }
+  33%  { text-shadow: 0.3px -0.2px 0 #000; }
+  66%  { text-shadow: -0.2px 0.3px 0 #000; }
+  100% { text-shadow: 0.2px 0.4px 0 #000; }
+}
+
+.shop-footer.no-glitch {
+  animation: none !important;
+  text-shadow: none !important;
+}
+
+/* ==========================================
+   MOBILE / WEB TOGGLE
+========================================== */
+.mobile-wrapper { display: block; }
+.web-wrapper { display: none; }
+
+@media (min-width: 900px) {
+  .mobile-wrapper { display: none; }
+  .web-wrapper { display: block; }
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+.shop-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff !important;
+  border-bottom: 1px solid #000;
+  padding: 10px 20px;
+  z-index: 1000;
+
+  display: flex;
+  gap: 28px;
+  font-family: "MissFajardose";
+  font-size: 28px;
+  letter-spacing: 4px;
+}
+
+.m-header { justify-content: center; font-size: 24px; }
+.w-header { justify-content: flex-start; }
+
+.shop-nav-item.active {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==========================================
+   PRODUCTS WRAPPER
+========================================== */
+.products-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* MOBILE */
+.m-products {
+  /* padding-top: 90px;
+  padding-bottom: 90px; */
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 0px);
+  overflow: visible;
+  position: relative;
+}
+
+/* ==========================================
+   WEB — 자유 드래그 캔버스 영역
+========================================== */
+.w-products {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 200px);
+  overflow: hidden; /* 화면 밖으로 못 나감 */
+  position: relative;
+}
+
+/* ★ 실제로 드래그 가능한 한정된 공간 */
+.w-canvas {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+  overflow: visible;
+  pointer-events: none; /* 카드만 드래그 가능하게 */
+}
+
+/* WEB 카드 */
+.w-product-card {
+  width: 260px;
+  position: absolute;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+/* MOBILE 카드 */
+.m-product-card {
+  width: 82vw;
+  /* margin: -5px auto 70px auto; */
+  position: absolute;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+/* ==========================================
+   CARD GENERAL
+========================================== */
+.product-card {
+  background: #f2f2f2;
+  border: 1px solid #000;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info {
+  border-top: 1px solid #000;
+  padding: 10px;
+  font-family: "Noto Sans CJK KR", sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.48;
+}
+
+/* ==========================================
+   FOOTER 
+========================================== */
+.shop-footer {
+  position: relative;
+  z-index: 2000; /* 카드(999)보다 위에 위치 */
+  width: 100%;
+  padding: 16px 18px;
+  border-top: 1px solid #000;
+  background: #ffffff !important;
+  line-height: 1.48;
+  letter-spacing: 0.4px;
+}
+
+.shop-footer,
+.shop-footer * {
+  font-family: "Noto Sans CJK KR", sans-serif !important;
+  font-size: 10px;
+}
+
+/* ==========================================
+   SPARKLE EFFECT
+========================================== */
+/* ✨ Thin Cross Sparkle Effect */
+.cross-sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  animation: crossFade 0.6s ease-out forwards;
+}
+
+/* 십자가 막대 — 더 얇게 (1px) */
+.cross-sparkle::before,
+.cross-sparkle::after {
+  content: "";
+  position: absolute;
+  background: #d0d0d0; /* 연한 그레이 */
+  border-radius: 1px;
+}
+
+/* 수직 */
+.cross-sparkle::before {
+  width: 1px;
+  height: 8px;
+  left: 3.5px;
+  top: 0;
+}
+
+/* 수평 */
+.cross-sparkle::after {
+  width: 8px;
+  height: 1px;
+  left: 0;
+  top: 3.5px;
+}
+
+@keyframes crossFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.2) translateY(-10px);
+    opacity: 0;
+  }
+}
+
+/* ✨ Thin Cross Sparkle Effect */
+.cross-sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  animation: crossFade 0.8s ease-out forwards;
+}
+
+/* 십자가 막대 — 더 얇게 (1px) */
+.cross-sparkle::before,
+.cross-sparkle::after {
+  content: "";
+  position: absolute;
+  background: #d0d0d0; /* 연한 그레이 */
+  border-radius: 1px;
+}
+
+/* 수직 */
+.cross-sparkle::before {
+  width: 1px;
+  height: 8px;
+  left: 3.5px;
+  top: 0;
+}
+
+/* 수평 */
+.cross-sparkle::after {
+  width: 8px;
+  height: 1px;
+  left: 0;
+  top: 3.5px;
+}
+
+@keyframes crossFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.2) translateY(-10px);
+    opacity: 0;
+  }
+}
+
+/* 모바일 전용 별똥별 애니메이션 */
+@keyframes crossFall {
+  0% {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--fall-x), var(--fall-y)) scale(0.2);
+  }
+}
+
+/* 모바일에서만 색 더 진하게 */
+@media (pointer: coarse) {
+  .cross-sparkle::before,
+  .cross-sparkle::after {
+    background: #707070; /* 더 진한 그레이 */
+  }
+}
+
+/* 📱 모바일 전용: 떨어지는 속도 + 사라지는 속도 느리게 */
+@media (pointer: coarse) {
+  .cross-sparkle {
+    animation-duration: 5.1s !important; /* PC보다 훨씬 느리게 */
+  }
+}
+
+.cross-sparkle {
+  z-index: 99999 !important;  /* ⭐ 헤더/푸터/카드 전부보다 위로 */
+  pointer-events: none;        /* 터치 이벤트 막지 않게 유지 */
+}
+
+
+/* ==========================================
+   UTILITIES
+========================================== */
+
+
+/* 모바일 탭 하이라이트 제거 */
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.product-img {
+  -webkit-touch-callout: none; /* 모바일 꾹 눌렀을 때 메뉴 방지 */
+  -webkit-user-drag: none;     /* 이미지 드래그 방지 */
+  user-select: none;           /* 선택 방지 (웹 파랗게 선택 안 됨) */
+  pointer-events: none;        /* ⭐ 이미지가 아예 '터치 이벤트' 못 받게 함 */
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+
