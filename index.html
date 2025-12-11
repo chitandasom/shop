@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>shop | chitandasom</title>
+
+  <meta name="description" content="chitandasom shop" />
+  <meta property="og:title" content="shop | chitandasom" />
+  <meta property="og:description" content="artist goods" />
+  <meta property="og:image" content="https://chitandasom.com/img/thumbnail.png" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+
+<body>
+
+<!-- =====================================
+     MOBILE LAYOUT
+===================================== -->
+<div class="mobile-wrapper">
+
+  <header class="shop-header m-header">
+    <div class="shop-nav-item" data-cat="all">all</div>
+    <div class="shop-nav-item" data-cat="acc">acc</div>
+    <div class="shop-nav-item" data-cat="custom">custom</div>
+    <div class="shop-nav-item" data-cat="for-doll">for doll</div>
+  </header>
+
+  <main class="products-wrapper m-products" id="m-products"></main>
+
+</div>
+
+
+<!-- =====================================
+     WEB LAYOUT
+===================================== -->
+<div class="web-wrapper">
+
+  <header class="shop-header w-header">
+    <div class="shop-nav-item" data-cat="all">all</div>
+    <div class="shop-nav-item" data-cat="acc">acc</div>
+    <div class="shop-nav-item" data-cat="custom">custom</div>
+    <div class="shop-nav-item" data-cat="for-doll">for doll</div>
+  </header>
+
+  <main class="products-wrapper w-products" id="w-products">
+      <!-- ★ 자유롭게 드래그하지만 화면 밖으로 안내려가는 캔버스 -->
+      <div class="w-canvas" id="w-canvas"></div>
+  </main>
+
+</div>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+<footer class="shop-footer">
+  <div class="footer-text">
+    Company: chitandasom / Founder: Somin Kim<br>
+    Business Registration Number: 863&#8203;-18&#8203;-02608 / Mail-Order: 2026-0000<br>
+    Email: <span class="no-link-email">chitandasom@gmail.com</span>
+  </div>
+</footer>
+
+<script src="data/products.js"></script>  <!-- ★ 상품 데이터 먼저 -->
+<script src="script.js"></script>         <!-- ★ 그 다음에 기능 -->
+</body>
+</html>
+
