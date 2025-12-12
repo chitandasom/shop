@@ -1,0 +1,285 @@
+/* ==========================================
+   FONT
+========================================== */
+@font-face {
+  font-family: "MissFajardose";
+  src: url("fonts/MissFajardose-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DX10";
+  src: url("fonts/DX10.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DX20";
+  src: url("fonts/DX20.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans CJK KR", sans-serif;
+  background: #ffffff;
+}
+
+/* glitch animation */
+html,
+body,
+div,
+span,
+a,
+p {
+  animation: textGlitchSoft 0.9s infinite alternate;
+}
+
+@keyframes textGlitchSoft {
+  0% {
+    text-shadow: 0px 0px 0 #000;
+  }
+
+  33% {
+    text-shadow: 0.3px -0.2px 0 #000;
+  }
+
+  66% {
+    text-shadow: -0.2px 0.3px 0 #000;
+  }
+
+  100% {
+    text-shadow: 0.2px 0.4px 0 #000;
+  }
+}
+
+/* header */
+.detail-header {
+  padding: 16px;
+}
+
+.back-btn {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* layout */
+.detail-main {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* title, price, desc */
+.detail-title {
+  font-family: "MissFajardose";
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+
+.detail-price {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.detail-desc1 {
+  margin-top: 20px;
+  font-family: "DX20";
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  line-height: 1.48;
+  margin-bottom: 0px;
+}
+
+.detail-desc2 {
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.48;
+  margin-bottom: 20px;
+}
+
+/* order button */
+.order-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #f2f2f2;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+/* images */
+.detail-images img {
+  width: 100%;
+  /* 가로폭 동일 */
+  height: auto;
+  /* 비율 유지 */
+  object-fit: contain;
+  border: 1px solid #000;
+  margin-bottom: -6px;
+}
+
+/* bottom global text */
+.global-desc1 {
+  font-family: "DX20";
+  margin-top: 40px;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  line-height: 1.48;
+  color: #000000;
+}
+
+.global-desc2 {
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.48;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+/* mobile responsive */
+@media (max-width: 900px) {
+  .detail-main {
+    padding: 0px;
+  }
+
+  .detail-title {
+    font-size: 40px;
+  }
+
+  .detail-price {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .detail-main {
+    max-width: 100%; 
+    padding: 20px;   
+  }
+
+  .detail-title {
+    font-size: 40px;
+  }
+
+  .detail-price {
+    font-size: 16px;
+  }
+}
+
+
+/* ==========================================
+   SPARKLE EFFECT
+========================================== */
+
+/* ✨ Thin Cross Sparkle Effect */
+.cross-sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  animation: crossFade 0.8s ease-out forwards;
+}
+
+/* 십자가 막대 — 더 얇게 (1px) */
+.cross-sparkle::before,
+.cross-sparkle::after {
+  content: "";
+  position: absolute;
+  background: #d0d0d0;
+  /* 연한 그레이 */
+  border-radius: 1px;
+}
+
+/* 수직 */
+.cross-sparkle::before {
+  width: 1px;
+  height: 8px;
+  left: 3.5px;
+  top: 0;
+}
+
+/* 수평 */
+.cross-sparkle::after {
+  width: 8px;
+  height: 1px;
+  left: 0;
+  top: 3.5px;
+}
+
+@keyframes crossFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(0.2) translateY(-10px);
+    opacity: 0;
+  }
+}
+
+/* 모바일 전용 별똥별 애니메이션 */
+@keyframes crossFall {
+  0% {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--fall-x), var(--fall-y)) scale(0.2);
+  }
+}
+
+/* 모바일에서만 색 더 진하게 */
+@media (pointer: coarse) {
+
+  .cross-sparkle::before,
+  .cross-sparkle::after {
+    background: #707070;
+    /* 더 진한 그레이 */
+  }
+}
+
+/* 📱 모바일 전용: 떨어지는 속도 + 사라지는 속도 느리게 */
+@media (pointer: coarse) {
+  .cross-sparkle {
+    animation-duration: 5.1s !important;
+    /* PC보다 훨씬 느리게 */
+  }
+}
+
+.cross-sparkle {
+  z-index: 99999 !important;
+  /* ⭐ 헤더/푸터/카드 전부보다 위로 */
+  pointer-events: none;
+  /* 터치 이벤트 막지 않게 유지 */
+}
+
+/* ==========================================
+   UTILITIES
+========================================== */
+
+
+/* 모바일 탭 하이라이트 제거 */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.product-img {
+  -webkit-touch-callout: none;
+  /* 모바일 꾹 눌렀을 때 메뉴 방지 */
+  -webkit-user-drag: none;
+  /* 이미지 드래그 방지 */
+  user-select: none;
+  /* 선택 방지 (웹 파랗게 선택 안 됨) */
+  pointer-events: none;
+  /* ⭐ 이미지가 아예 '터치 이벤트' 못 받게 함 */
+}
