@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>order | chitandasom</title>
+
+    <!-- 기존 사이트 스타일 -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- 주문 페이지 전용 스타일  -->
+    <link rel="stylesheet" href="order.css" />
+
+    <!-- Daum 주소 검색 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <link rel="icon" href="favicon.ico" />
+</head>
+
+<body>
+
+    <header class="detail-header">
+        <a href="#" class="back-btn" id="back-btn">❮</a>
+    </header>
+
+    <main class="order-wrapper">
+
+        <p class="worldwide-note">
+            for worldwide shipping,<br/>
+            contact <a href="mailto:chitandasom@gmail.com">chitandasom@gmail.com</a>
+        </p>
+
+        <form id="orderForm">
+            <h1 id="product-name"></h1>
+
+            <!-- 상품 / 수량 -->
+            <input type="hidden" id="product">
+            <!-- 상품 선택 -->
+            <button type="button" id="toggleProducts">상품 선택 <span class="arrow">▾</span></button>
+
+            <div id="productList" style="display:none;">
+                <!-- JS로 상품 목록 생성 -->
+            </div>
+
+
+            <!-- 선택된 상품들 -->
+
+            <div id="selectedProducts"></div>
+            </div>
+
+            <!-- 주문자 -->
+            <div class="field field-orderer">
+                <label for="orderer">주문자명</label>
+                <input required id="orderer">
+            </div>
+
+            <div class="field field-phone">
+                <label for="phone">연락처</label>
+                <input required id="phone">
+            </div>
+
+            <div class="field field-email">
+                <label for="email">이메일</label>
+                <input required type="email" id="email">
+            </div>
+
+            <!-- 동일 체크 -->
+            <!-- <label>
+                <input type="checkbox" id="same">
+                주문자 = 수령인
+            </label> -->
+
+            <!-- 수령인 -->
+            <div class="field field-receiver">
+                <label for="receiver" class="inline-label">
+                    수령인명
+                    <span class="same-check">
+                        ( <input type="checkbox" id="same"> 주문자와 동일 )
+                    </span>
+                </label>
+
+                <input id="receiver">
+            </div>
+
+            <div class="field field-receiver-phone">
+                <label for="receiver_phone">수령인 연락처</label>
+                <input required id="receiver_phone">
+            </div>
+
+
+            <!-- 주소 -->
+            <div class="field field-address">
+                <label for="address">주소</label>
+                <input required id="address" readonly>
+                <!-- <button type="button" onclick="execDaumPostcode()">주소 찾기</button> -->
+            </div>
+
+            <div class="field field-detail_address">
+                <label for="detail_address">상세주소</label>
+                <input required id="detail_address">
+            </div>
+
+            <!-- 선택 -->
+            <div class="field field-request">
+                <label for="request">배송 요청사항</label>
+                <input id="request" placeholder="(선택)">
+            </div>
+
+            <div class="field field-payment">
+                <label for="payment">결제방법</label>
+                <div id="payment">
+                    <label>
+                        <input type="radio" name="payment" checked disabled>
+                        계좌이체<br />
+                        <span class="payment-desc">
+                            주문 접수 후 결제 안내 메일을 보내드립니다.
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="field field-cash_receipt">
+                <label for="cash_receipt">현금영수증 번호</label>
+                <input id="cash_receipt" placeholder="(선택)">
+            </div>
+
+            <div class="field field-priceSummary">
+                <div id="priceSummary">
+                    <div class="row">
+                        <span>상품 금액 합계</span>
+                        <span id="subtotal">0원</span>
+                    </div>
+
+                    <div class="row">
+                        <span>배송비</span>
+                        <span id="shipping">3,500원</span>
+                    </div>
+
+                    <div class="row total">
+                        <span>총 결제금액</span>
+                        <span id="total">0원</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">제출</button>
+        </form>
+    </main>
+
+    <script src="data/products.js"></script>
+    <script src="order.js"></script>
+</body>
+
+</html>
