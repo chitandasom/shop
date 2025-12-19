@@ -1,0 +1,436 @@
+@font-face {
+  font-family: "DX20";
+  src: url("fonts/DX20.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MissFajardose";
+  src: url("fonts/MissFajardose-Regular.ttf") format("truetype");
+}
+
+/* header */
+.detail-header {
+  padding: 16px;
+}
+
+.back-btn {
+  position: fixed;
+  font-family: "Noto Sans CJK KR";
+  background-color: #ffffff;
+  padding-left: calc(50vw - 650px);
+  padding-right: 3px;
+  font-size: 14px;
+  /* padding-top: 1px; */
+  text-decoration: none;
+  color: #000;
+}
+
+/* ==========================================
+  order-wrapper
+========================================== */
+
+.order-wrapper {
+  max-width: 480px;
+  margin: 120px auto;
+  padding: 0 20px;
+  font-family: "DX20";
+  letter-spacing: 0.8px;
+}
+
+.worldwide-note {
+  font-size: 9.7px;
+  color: #959595;
+  text-align: left;
+  letter-spacing: 1.1px;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.worldwide-note a {
+  color: #000;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.worldwide-note a:hover {
+  text-decoration: underline !important;
+}
+
+
+form>* {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  font-size: 10px;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #000;
+  border: 1px solid #000;
+  background: #f2f2f2;
+  font-family: "DX20";
+  font-size: 10px;
+  letter-spacing: 0.8px;
+}
+
+/* 상품 선택 영역 버튼만 리셋 */
+#productList button:not(.add),
+#selectedProducts button:not(.add) {
+  all: unset;
+  /* 🔥 기본 스타일 전부 제거 */
+  cursor: pointer;
+  font-family: "DX20";
+  font-size: 10px;
+  letter-spacing: 0.8px;
+}
+
+#productList .add {
+  background: #000;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+  line-height: 1;
+}
+
+.minus-char {
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+
+#toggleProducts {
+  font-family: "DX20";
+  margin-bottom: 35px;
+  color: #000;
+}
+
+#toggleProducts .arrow {
+  display: inline-block;
+}
+
+
+#toggleProducts.open .arrow {
+  transform: rotate(180deg) translateY(-2px);
+}
+
+#productList {
+  margin-bottom: 30px;
+  font-family: "DX20";
+  letter-spacing: 0.8px;
+  font-size: 10px;
+}
+
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  min-width: 0;
+}
+
+.product-name {
+  font-family: "MissFajardose";
+  font-size: 40px;
+  display: inline-block;
+  transform: translateY(-8px);
+  line-height: 1;
+  letter-spacing: 0px;
+  overflow: visible;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 15px;
+}
+
+.product-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#selectedProducts .section-title {
+  margin-bottom: 14px;
+  /* 원하는 만큼 조절 */
+}
+
+#selectedProducts {
+  margin-bottom: 35px;
+}
+
+.selected-product-text {
+  display: block;
+  /* 중요 */
+  margin-top: 1px;
+  /* 원하는 만큼 */
+}
+
+.mid-star {
+  display: inline-block;
+  transform: translateY(3px);
+  /* 🔽 아래로 내리기 */
+}
+
+
+#priceSummary {
+  display: none;
+  margin-top: 30px;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+}
+
+#priceSummary .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10.5px;
+}
+
+#priceSummary .total {
+  border-top: 1px solid #000;
+  padding-top: 10.5px;
+  padding-bottom: 1px;
+  font-weight: bold;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+input,
+textarea {
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  padding: 6px 0;
+  font-family: "DX20";
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  outline: none;
+  line-height: 1.1;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  font-family: "DX20";
+  letter-spacing: 0.8px;
+  margin-top: -5px;
+  width: 100%;
+}
+
+/* iOS Safari 텍스트 입력 필드만 초기화 */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-clip: padding-box;
+  border-bottom: 1px solid #000;
+}
+
+/* iOS Safari 인풋 클릭 시 확대 방지 */
+@media (pointer: coarse) {
+
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea {
+    font-size: 16px;
+    /* iOS 확대 방지 조건 */
+    transform: scale(0.625);
+    /* 시각적으로 10px처럼 보이게 */
+    transform-origin: left top;
+    width: 160%;
+
+    border-bottom-width: 1.6px;
+    margin-top: 4px;
+  }
+}
+
+
+input[type="radio"] {
+  margin-top: 6px;
+  margin-bottom: 0px;
+}
+
+.inline-label {
+  /* display: flex; */
+  align-items: center;
+  gap: 6px;
+}
+
+.same-check {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.same-check input {
+  margin: 0 2px 0 0;
+}
+
+.field {
+  margin-bottom: 38px;
+}
+
+.payment-desc {
+  animation: none !important;
+  text-shadow: none !important;
+  display: inline-block;
+  /* 중요 */
+  /* transform: skewX(-10deg); */
+  margin-left: 20px;
+  /* ← 띄어쓰기 효과 */
+  margin-top: 10px;
+  color: #000000;
+  /* 색 변경 */
+  background: #dee9e4;
+  font-size: 10px;
+  /* 살짝 작게 (선택) */
+}
+
+button[type="submit"] {
+  margin-top: 40px;
+  color: #000;
+}
+
+
+/* ==========================================
+   SPARKLE EFFECT
+========================================== */
+
+/* ✨ Thin Cross Sparkle Effect */
+.cross-sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  animation: crossFade 0.8s ease-out forwards;
+}
+
+/* 십자가 막대 — 더 얇게 (1px) */
+.cross-sparkle::before,
+.cross-sparkle::after {
+  content: "";
+  position: absolute;
+  background: #d0d0d0;
+  /* 연한 그레이 */
+  border-radius: 1px;
+}
+
+/* 수직 */
+.cross-sparkle::before {
+  width: 1px;
+  height: 8px;
+  left: 3.5px;
+  top: 0;
+}
+
+/* 수평 */
+.cross-sparkle::after {
+  width: 8px;
+  height: 1px;
+  left: 0;
+  top: 3.5px;
+}
+
+@keyframes crossFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(0.2) translateY(-10px);
+    opacity: 0;
+  }
+}
+
+/* 모바일 전용 별똥별 애니메이션 */
+@keyframes crossFall {
+  0% {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--fall-x), var(--fall-y)) scale(0.2);
+  }
+}
+
+/* 모바일에서만 색 더 진하게 */
+@media (pointer: coarse) {
+
+  .cross-sparkle::before,
+  .cross-sparkle::after {
+    background: #707070;
+    /* 더 진한 그레이 */
+  }
+}
+
+/* 📱 모바일 전용: 떨어지는 속도 + 사라지는 속도 느리게 */
+@media (pointer: coarse) {
+  .cross-sparkle {
+    animation-duration: 5.1s !important;
+    /* PC보다 훨씬 느리게 */
+  }
+}
+
+.cross-sparkle {
+  z-index: 99999 !important;
+  /* ⭐ 헤더/푸터/카드 전부보다 위로 */
+  pointer-events: none;
+  /* 터치 이벤트 막지 않게 유지 */
+}
+
+/* ==========================================
+   모바일 버튼 터치 오버레이 완전 차단 (최종)
+========================================== */
+@media (pointer: coarse) {
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+    background-image: none !important;
+    /* 🔥 핵심 */
+    filter: none !important;
+    /* 🔥 Chrome overlay 차단 */
+    outline: none !important;
+  }
+
+  button:active,
+  button:focus,
+  button:focus-visible {
+    background-color: #f2f2f2 !important;
+    background-image: none !important;
+    filter: none !important;
+    outline: none !important;
+  }
+
+  /* 상품 리스트 내부 버튼 (all: unset 된 애들) */
+  #productList button,
+  #selectedProducts button {
+    background-color: transparent !important;
+    background-image: none !important;
+    filter: none !important;
+  }
+}
+
+/* 상품 추가 버튼은 항상 검정 유지 */
+@media (pointer: coarse) {
+  #productList .add,
+  #productList .add:active,
+  #productList .add:focus {
+    background: #000 !important;
+    color: #fff !important;
+  }
+}
